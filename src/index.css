@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: #176B45;
+    --emerald: #0D4935;
+    --lime: #A3D977;
+    --mint: #EAF7EF;
+    --surface: #F7F9F5;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-300 dark:bg-brand-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-card border border-gray-100 dark:border-gray-800 p-6 transition-shadow duration-200;
+  }
+
+  .card:hover {
+    @apply shadow-card-hover;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-forest text-white font-semibold rounded-xl
+           hover:bg-emerald active:scale-95 transition-all duration-200 shadow-sm hover:shadow-glow
+           focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-mint text-forest font-semibold rounded-xl
+           hover:bg-brand-100 active:scale-95 transition-all duration-200 border border-brand-200
+           focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 font-medium rounded-xl
+           hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-gray-300;
+  }
+
+  .input {
+    @apply w-full px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700
+           rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-forest focus:border-transparent
+           transition-all duration-200 text-sm;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-green {
+    @apply badge bg-mint text-forest dark:bg-brand-900 dark:text-brand-300;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-50 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .badge-red {
+    @apply badge bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 dark:text-gray-400 text-sm mt-1;
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-2;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
+           text-gray-300 hover:bg-white/10 hover:text-white cursor-pointer;
+  }
+
+  .nav-link.active {
+    @apply bg-white/15 text-white;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded-lg;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-md dark:bg-gray-900/80 border border-white/30 dark:border-gray-700/30;
+  }
+
+  /* Page transitions */
+  .page-enter {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* Chart container */
+  .recharts-wrapper {
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  /* Leaflet overrides */
+  .leaflet-container {
+    border-radius: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #176B45, #A3D977);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #176B45 0%, #0D4935 100%);
+  }
+
+  .bg-gradient-light {
+    background: linear-gradient(135deg, #EAF7EF 0%, #F7F9F5 100%);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
